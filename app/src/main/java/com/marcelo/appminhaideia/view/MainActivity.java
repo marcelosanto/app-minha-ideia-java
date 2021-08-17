@@ -7,10 +7,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.marcelo.appminhaideia.R;
+import com.marcelo.appminhaideia.core.AppUtil;
 
 public class MainActivity extends AppCompatActivity {
-
-    String TAG = "APP MINHA IDEIA";
 
     TextView txtNome, txtEmail;
 
@@ -22,12 +21,12 @@ public class MainActivity extends AppCompatActivity {
         txtNome = findViewById(R.id.txtMainNome);
         txtEmail = findViewById(R.id.txtMainEmail);
 
-        Log.d(TAG, "onCreate: Tela Principal carregada...");
+        Log.d(AppUtil.TAG, "onCreate: Tela Principal carregada...");
 
         Bundle bundle = getIntent().getExtras();
 
-        Log.d(TAG, "onCreate: Nome..." + bundle.getString("nome"));
-        Log.d(TAG, "onCreate: Email..." + bundle.getString("email"));
+        Log.d(AppUtil.TAG, "onCreate: Nome..." + bundle.getString("nome"));
+        Log.d(AppUtil.TAG, "onCreate: Email..." + bundle.getString("email"));
 
         txtNome.setText("Nome: " + bundle.getString("nome"));
         txtEmail.setText("Email: " + bundle.getString("email"));
