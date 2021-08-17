@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">App Minha Ideia</string>
+    <string name="app_name">Nome</string>
+    <string name="app_email">Email</string>
 </resources>

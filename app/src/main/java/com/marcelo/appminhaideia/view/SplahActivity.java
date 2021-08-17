@@ -25,7 +25,6 @@ public class SplahActivity extends AppCompatActivity {
 
         Log.d(TAG, "onCreate: Tela Splash carregada...");
 
-        objCliente = new Cliente("Marcelo", "rocha@gmail.com", "2799558855", 55, true);
 
         trocarTela();
     }
@@ -39,9 +38,18 @@ public class SplahActivity extends AppCompatActivity {
             @Override
             public void run() {
 
+                objCliente = new Cliente("Marcelo", "rocha@gmail.com", "2799558855", 55, true);
+
                 Log.d(TAG, "trocarTela: Esperando um tempo...");
 
                 Intent trocarDeTela = new Intent(SplahActivity.this, MainActivity.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("nome", objCliente.getNome());
+                bundle.putString("email", objCliente.getEmail());
+
+                trocarDeTela.putExtras(bundle);
+
                 startActivity(trocarDeTela);
                 finish();
 
