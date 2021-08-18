@@ -6,21 +6,30 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.marcelo.appminhaideia.core.AppUtil;
+import com.marcelo.appminhaideia.datamodel.ClienteDataModel;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "AppMinhaIdeia-sqlite";
     private static final int DB_VERSION = 1;
 
+    SQLiteDatabase db;
+
     public AppDataBase(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
 
         Log.d(AppUtil.TAG, "AppDataBase: Criado o banco de dados");
+
+        db = getWritableDatabase();
+
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL(ClienteDataModel.criarTabela());
 
+        Log.d(AppUtil.TAG, "AppDataBase: TabelaCliente" + ClienteDataModel.criarTabela());
     }
 
     @Override

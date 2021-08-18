@@ -46,7 +46,7 @@ public class SplahActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                objCliente = new Cliente("Marcelo", "rocha@gmail.com", "2799558855", 55, true);
+                objCliente = new Cliente("Marcelo", "rocha@gmail.com");
 
                 Log.d(AppUtil.TAG, "trocarTela: Esperando um tempo...");
 
