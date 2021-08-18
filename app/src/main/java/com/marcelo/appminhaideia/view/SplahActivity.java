@@ -32,8 +32,6 @@ public class SplahActivity extends AppCompatActivity {
 
         txtAppVersion = findViewById(R.id.txtAppVersion);
 
-        clienteController = new ClienteController();
-
         txtAppVersion.setText(AppUtil.versaoDoApp());
 
         trocarTela();

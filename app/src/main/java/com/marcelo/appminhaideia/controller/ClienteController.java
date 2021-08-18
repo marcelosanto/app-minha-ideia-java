@@ -1,37 +1,15 @@
 package com.marcelo.appminhaideia.controller;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.marcelo.appminhaideia.core.AppUtil;
+import com.marcelo.appminhaideia.datasource.AppDataBase;
 
-public class ClienteController implements ICrud {
+public class ClienteController extends AppDataBase {
 
-    String versaoApp;
-
-    public ClienteController() {
-        this.versaoApp = AppUtil.versaoDoApp();
-
-        Log.i(AppUtil.TAG, "ClienteController: Versão App: " + versaoApp);
-    }
-
-    @Override
-    public void incluir() {
-        Log.i(AppUtil.TAG, "Incluir: Cliente");
-
-    }
-
-    @Override
-    public void alterar() {
-        Log.i(AppUtil.TAG, "Alterar: Cliente");
-    }
-
-    @Override
-    public void deletar() {
-        Log.i(AppUtil.TAG, "Deletar: Cliente");
-    }
-
-    @Override
-    public void listar() {
-        Log.i(AppUtil.TAG, "Listar: Cliente");
+    public ClienteController(Context context) {
+        super(context);
+        Log.d(AppUtil.TAG, "ClienteController: conectado");
     }
 }
