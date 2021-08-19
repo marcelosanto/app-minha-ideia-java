@@ -47,10 +47,15 @@ public class AppDataBase extends SQLiteOpenHelper {
      * Método para incluir dados no banco de dados
      */
     public boolean insert(String tabela, ContentValues dados) {
+        db = getWritableDatabase();
         boolean retorno = false;
 
         // Regra de negócio
-
+        try {
+            retorno = db.insert(tabela, null, dados) > 0;
+        } catch (Exception e) {
+            Log.d(AppUtil.TAG, "insert: " + e.getMessage());
+        }
         return retorno;
     }
 
