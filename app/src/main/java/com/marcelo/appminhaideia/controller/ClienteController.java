@@ -9,7 +9,6 @@ import com.marcelo.appminhaideia.datamodel.ClienteDataModel;
 import com.marcelo.appminhaideia.datasource.AppDataBase;
 import com.marcelo.appminhaideia.model.Cliente;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ClienteController extends AppDataBase implements ICrud<Cliente> {
@@ -59,8 +58,6 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
 
     @Override
     public List<Cliente> listar() {
-        List<Cliente> lista = new ArrayList<>();
-
-        return lista;
+        return getAllClientes(ClienteDataModel.TABELA);
     }
 }

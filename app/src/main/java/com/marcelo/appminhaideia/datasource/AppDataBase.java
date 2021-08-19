@@ -2,6 +2,7 @@ package com.marcelo.appminhaideia.datasource;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -9,6 +10,10 @@ import android.util.Log;
 import com.marcelo.appminhaideia.core.AppUtil;
 import com.marcelo.appminhaideia.datamodel.ClienteDataModel;
 import com.marcelo.appminhaideia.datamodel.ProdutoDataModel;
+import com.marcelo.appminhaideia.model.Cliente;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -92,5 +97,36 @@ public class AppDataBase extends SQLiteOpenHelper {
         return retorno;
     }
 
+    /**
+     * Método para listar dados no banco de dados
+     */
 
+    public List<Cliente> getAllClientes(String tabela) {
+        db = getWritableDatabase();
+
+        List<Cliente> clientes = new ArrayList<>();
+        Cliente obj;
+
+        String sql = "SELECT * FROM " + tabela;
+
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                obj = new Cliente();
+
+                obj.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.ID)));
+                obj.setNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.NOME)));
+                obj.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.EMAIL)));
+
+                clientes.add(obj);
+
+            } while (cursor.moveToNext());
+        }
+
+
+        return clientes;
+    }
 }

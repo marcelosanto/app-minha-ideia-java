@@ -2,7 +2,6 @@ package com.marcelo.appminhaideia.view;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,19 +25,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        clienteController = new ClienteController(getApplicationContext());
 
-        obj = new Cliente("Marcelo", "rocha@gmail.com");
+        for (int i = 0; i < 49; i++) {
+            clienteController = new ClienteController(getApplicationContext());
+            obj = new Cliente("Marcelo" + i, i + "rocha@gmail.com");
 
-        obj.setId(11);
+            clienteController.incluir(obj);
+        }
+        //obj.setId(11);
 
+        for (Cliente obj : clienteController.listar()) {
+            Log.i(AppUtil.TAG, "Cliente listar: " + obj.getId() + " " + obj.getNome() + " " + obj.getEmail());
+        }
+
+        /*
+         Atualizar dados
         if (clienteController.alterar(obj)) {
             Toast.makeText(this, " " + obj.getNome() + " atualizado com sucesso.", Toast.LENGTH_LONG).show();
             Log.i(AppUtil.TAG, "Cliente: dado atualizado com sucesso");
         } else {
             Toast.makeText(this, "Cliente não atualizado", Toast.LENGTH_LONG).show();
             Log.e(AppUtil.TAG, "Cliente: dado não atualizado");
-        }
+        }*/
 
         /* Excluir
         if (clienteController.deletar(obj.getId())) {
@@ -59,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
         }*/
 
 
-        produtoController = new ProdutoController(getApplicationContext());
-        objProduto = new Produto("Chinelo", "Havaianas");
-        objProduto.setId(1);
+        // produtoController =n ew ProdutoController(getApplicationContext());
+        // objProduto =new Produto("Chinelo","Havaianas");
+        //objProduto.setId(1);
 
         //Excluir
         /*
