@@ -6,6 +6,11 @@ public class Produto {
     private String nome;
     private String fornecedor;
 
+    public Produto(String nome, String fornecedor) {
+        this.nome = nome;
+        this.fornecedor = fornecedor;
+    }
+
     public String getNome() {
         return nome;
     }
