@@ -30,23 +30,45 @@ public class MainActivity extends AppCompatActivity {
 
         obj = new Cliente("Marcelo", "rocha@gmail.com");
 
-        if (clienteController.incluir(obj)) {
+        obj.setId(1);
+
+        if (clienteController.deletar(obj.getId())) {
+            Toast.makeText(this, " " + obj.getNome() + " excluido com sucesso.", Toast.LENGTH_LONG).show();
+            Log.i(AppUtil.TAG, "Cliente: dado excluido com sucesso");
+        } else {
+            Toast.makeText(this, "Cliente não excluido", Toast.LENGTH_LONG).show();
+            Log.e(AppUtil.TAG, "Cliente: dado não excluido");
+        }
+
+        /*if (clienteController.incluir(obj)) {
             Toast.makeText(this, " " + obj.getNome() + " inserido com sucesso.", Toast.LENGTH_LONG).show();
             Log.i(AppUtil.TAG, "Cliente: dado inserido com sucesso");
         } else {
             Toast.makeText(this, "Cliente não inserido", Toast.LENGTH_LONG).show();
             Log.e(AppUtil.TAG, "Cliente: dado não inserido");
-        }
+        }*/
+
 
         produtoController = new ProdutoController(getApplicationContext());
         objProduto = new Produto("Chinelo", "Havaianas");
+        objProduto.setId(1);
 
-        if (produtoController.incluir(objProduto)) {
+        if (produtoController.deletar(objProduto.getId())) {
+            Toast.makeText(this, "Produto " + objProduto.getNome() + " excluido com sucesso.", Toast.LENGTH_LONG).show();
+            Log.i(AppUtil.TAG, "Produto excluido com sucesso");
+        } else {
+            Toast.makeText(this, "Produto não excluido", Toast.LENGTH_LONG).show();
+            Log.e(AppUtil.TAG, "Produto não excluido");
+        }
+
+
+
+        /*if (produtoController.incluir(objProduto)) {
             Toast.makeText(this, "Produto " + objProduto.getNome() + " inserido com sucesso.", Toast.LENGTH_LONG).show();
             Log.i(AppUtil.TAG, "Produto: dado inserido com sucesso");
         } else {
             Toast.makeText(this, "Produto não inserido", Toast.LENGTH_LONG).show();
             Log.e(AppUtil.TAG, "Produto: dado não inserido");
-        }
+        }*/
     }
 }
