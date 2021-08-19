@@ -49,7 +49,7 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
         dadoDoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
 
         // Eviar os dados (dadoDoObjeto) para a classe AppDatabase
-        return false;
+        return update(ClienteDataModel.TABELA, dadoDoObjeto);
     }
 
     @Override

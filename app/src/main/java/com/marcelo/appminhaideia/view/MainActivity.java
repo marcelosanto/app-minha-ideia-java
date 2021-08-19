@@ -30,17 +30,27 @@ public class MainActivity extends AppCompatActivity {
 
         obj = new Cliente("Marcelo", "rocha@gmail.com");
 
-        obj.setId(1);
+        obj.setId(11);
 
+        if (clienteController.alterar(obj)) {
+            Toast.makeText(this, " " + obj.getNome() + " atualizado com sucesso.", Toast.LENGTH_LONG).show();
+            Log.i(AppUtil.TAG, "Cliente: dado atualizado com sucesso");
+        } else {
+            Toast.makeText(this, "Cliente não atualizado", Toast.LENGTH_LONG).show();
+            Log.e(AppUtil.TAG, "Cliente: dado não atualizado");
+        }
+
+        /* Excluir
         if (clienteController.deletar(obj.getId())) {
             Toast.makeText(this, " " + obj.getNome() + " excluido com sucesso.", Toast.LENGTH_LONG).show();
             Log.i(AppUtil.TAG, "Cliente: dado excluido com sucesso");
         } else {
             Toast.makeText(this, "Cliente não excluido", Toast.LENGTH_LONG).show();
             Log.e(AppUtil.TAG, "Cliente: dado não excluido");
-        }
+        }*/
 
-        /*if (clienteController.incluir(obj)) {
+        /* Incluir
+        if (clienteController.incluir(obj)) {
             Toast.makeText(this, " " + obj.getNome() + " inserido com sucesso.", Toast.LENGTH_LONG).show();
             Log.i(AppUtil.TAG, "Cliente: dado inserido com sucesso");
         } else {
@@ -53,17 +63,19 @@ public class MainActivity extends AppCompatActivity {
         objProduto = new Produto("Chinelo", "Havaianas");
         objProduto.setId(1);
 
+        //Excluir
+        /*
         if (produtoController.deletar(objProduto.getId())) {
             Toast.makeText(this, "Produto " + objProduto.getNome() + " excluido com sucesso.", Toast.LENGTH_LONG).show();
             Log.i(AppUtil.TAG, "Produto excluido com sucesso");
         } else {
             Toast.makeText(this, "Produto não excluido", Toast.LENGTH_LONG).show();
             Log.e(AppUtil.TAG, "Produto não excluido");
-        }
+        }*/
 
 
-
-        /*if (produtoController.incluir(objProduto)) {
+        //Incluir
+       /* if (produtoController.incluir(objProduto)) {
             Toast.makeText(this, "Produto " + objProduto.getNome() + " inserido com sucesso.", Toast.LENGTH_LONG).show();
             Log.i(AppUtil.TAG, "Produto: dado inserido com sucesso");
         } else {
