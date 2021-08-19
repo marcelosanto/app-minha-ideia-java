@@ -1,12 +1,8 @@
 package com.marcelo.appminhaideia.model;
 
-import android.util.Log;
+public class Produto {
 
-import com.marcelo.appminhaideia.controller.ICrud;
-import com.marcelo.appminhaideia.core.AppUtil;
-
-public class Produto implements ICrud {
-
+    private int id;
     private String nome;
     private String fornecedor;
 
@@ -26,24 +22,11 @@ public class Produto implements ICrud {
         this.fornecedor = fornecedor;
     }
 
-    @Override
-    public void incluir() {
-        Log.i(AppUtil.TAG, "Incluir: Produtos");
-
+    public int getId() {
+        return id;
     }
 
-    @Override
-    public void alterar() {
-        Log.i(AppUtil.TAG, "Alterar: Produtos");
-    }
-
-    @Override
-    public void deletar() {
-        Log.i(AppUtil.TAG, "Deletar: Produtos");
-    }
-
-    @Override
-    public void listar() {
-        Log.i(AppUtil.TAG, "Listar: Produtos");
+    public void setId(int id) {
+        this.id = id;
     }
 }

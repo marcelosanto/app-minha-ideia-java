@@ -1,15 +1,71 @@
 package com.marcelo.appminhaideia.controller;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.util.Log;
 
 import com.marcelo.appminhaideia.core.AppUtil;
+import com.marcelo.appminhaideia.datamodel.ClienteDataModel;
 import com.marcelo.appminhaideia.datasource.AppDataBase;
+import com.marcelo.appminhaideia.model.Cliente;
 
-public class ClienteController extends AppDataBase {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ClienteController extends AppDataBase implements ICrud<Cliente> {
+
+    ContentValues dadoDoObjeto;
 
     public ClienteController(Context context) {
         super(context);
         Log.d(AppUtil.TAG, "ClienteController: conectado");
+    }
+
+    @Override
+    public boolean incluir(Cliente obj) {
+        dadoDoObjeto = new ContentValues();
+        //Key, Valor
+
+        // ID é chave primaria e é gerada automaticamente.
+        dadoDoObjeto.put(ClienteDataModel.NOME, obj.getNome());
+        dadoDoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
+
+        // Eviar os dados (dadoDoObjeto) para a classe AppDatabase
+        return true;
+    }
+
+    @Override
+    public boolean alterar(Cliente obj) {
+        dadoDoObjeto = new ContentValues();
+        //Key, Valor
+
+        // ID é chave primaria da tabela cliente.
+        // Alterar
+        dadoDoObjeto.put(ClienteDataModel.ID, obj.getId());
+        dadoDoObjeto.put(ClienteDataModel.NOME, obj.getNome());
+        dadoDoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
+
+        // Eviar os dados (dadoDoObjeto) para a classe AppDatabase
+        return true;
+    }
+
+    @Override
+    public boolean deletar(Cliente obj) {
+        dadoDoObjeto = new ContentValues();
+        //Key, Valor
+
+        // ID é chave primaria da tabela cliente.
+        // Deletar
+        dadoDoObjeto.put(ClienteDataModel.ID, obj.getId());
+
+        // Eviar os dados (dadoDoObjeto) para a classe AppDatabase
+        return true;
+    }
+
+    @Override
+    public List<Cliente> listar() {
+        List<Cliente> lista = new ArrayList<>();
+
+        return lista;
     }
 }

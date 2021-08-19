@@ -1,11 +1,6 @@
 package com.marcelo.appminhaideia.model;
 
-import android.util.Log;
-
-import com.marcelo.appminhaideia.controller.ICrud;
-import com.marcelo.appminhaideia.core.AppUtil;
-
-public class Cliente implements ICrud {
+public class Cliente {
 
     private int id; // Chave primaria no Banco de Dados
     private String nome;
@@ -40,24 +35,5 @@ public class Cliente implements ICrud {
         this.id = id;
     }
 
-    @Override
-    public void incluir() {
-        Log.i(AppUtil.TAG, "Incluir: Cliente");
 
-    }
-
-    @Override
-    public void alterar() {
-        Log.i(AppUtil.TAG, "Alterar: Cliente");
-    }
-
-    @Override
-    public void deletar() {
-        Log.i(AppUtil.TAG, "Deletar: Cliente");
-    }
-
-    @Override
-    public void listar() {
-        Log.i(AppUtil.TAG, "Listar: Cliente");
-    }
 }

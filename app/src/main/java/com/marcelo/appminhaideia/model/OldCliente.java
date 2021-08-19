@@ -1,11 +1,6 @@
 package com.marcelo.appminhaideia.model;
 
-import android.util.Log;
-
-import com.marcelo.appminhaideia.controller.ICrud;
-import com.marcelo.appminhaideia.core.AppUtil;
-
-public class OldCliente implements ICrud {
+public class OldCliente {
     private String nome;
     private String email;
     private String telefone;
@@ -60,24 +55,5 @@ public class OldCliente implements ICrud {
         this.sexo = sexo;
     }
 
-    @Override
-    public void incluir() {
-        Log.i(AppUtil.TAG, "Incluir: Cliente");
 
-    }
-
-    @Override
-    public void alterar() {
-        Log.i(AppUtil.TAG, "Alterar: Cliente");
-    }
-
-    @Override
-    public void deletar() {
-        Log.i(AppUtil.TAG, "Deletar: Cliente");
-    }
-
-    @Override
-    public void listar() {
-        Log.i(AppUtil.TAG, "Listar: Cliente");
-    }
 }
