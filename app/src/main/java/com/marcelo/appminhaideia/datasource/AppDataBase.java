@@ -1,5 +1,6 @@
 package com.marcelo.appminhaideia.datasource;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -41,4 +42,16 @@ public class AppDataBase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    /**
+     * Método para incluir dados no banco de dados
+     */
+    public boolean insert(String tabela, ContentValues dados) {
+        boolean retorno = false;
+
+        // Regra de negócio
+
+        return retorno;
+    }
+
 }

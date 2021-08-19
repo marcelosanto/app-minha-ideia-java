@@ -3,6 +3,7 @@ package com.marcelo.appminhaideia.controller;
 import android.content.ContentValues;
 import android.content.Context;
 
+import com.marcelo.appminhaideia.datamodel.ProdutoDataModel;
 import com.marcelo.appminhaideia.datasource.AppDataBase;
 import com.marcelo.appminhaideia.model.Produto;
 
@@ -24,7 +25,7 @@ public class ProdutoController extends AppDataBase implements ICrud<Produto> {
         dadoDoObjeto.put("nome", obj.getNome());
         dadoDoObjeto.put("fornecedor", obj.getFornecedor());
 
-        return false;
+        return insert(ProdutoDataModel.TABELA, dadoDoObjeto);
     }
 
     @Override

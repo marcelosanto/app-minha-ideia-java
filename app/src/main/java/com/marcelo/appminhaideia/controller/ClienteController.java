@@ -31,7 +31,10 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
         dadoDoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
 
         // Eviar os dados (dadoDoObjeto) para a classe AppDatabase
-        return true;
+
+
+        //Retorno sempre sera FALSO ou VERDADEIRO
+        return insert(ClienteDataModel.TABELA, dadoDoObjeto);
     }
 
     @Override
@@ -46,7 +49,7 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
         dadoDoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
 
         // Eviar os dados (dadoDoObjeto) para a classe AppDatabase
-        return true;
+        return false;
     }
 
     @Override
