@@ -6,9 +6,6 @@ public class ClienteDataModel {
      **/
 
     /* Toda Classe Data Model tem esta estrutura:
-
-
-
      5 - Queries de consulta gerais
 
     */

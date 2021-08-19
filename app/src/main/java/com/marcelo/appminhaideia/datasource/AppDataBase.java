@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.marcelo.appminhaideia.core.AppUtil;
 import com.marcelo.appminhaideia.datamodel.ClienteDataModel;
+import com.marcelo.appminhaideia.datamodel.ProdutoDataModel;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -29,7 +30,11 @@ public class AppDataBase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ClienteDataModel.criarTabela());
 
-        Log.d(AppUtil.TAG, "AppDataBase: TabelaCliente" + ClienteDataModel.criarTabela());
+        Log.d(AppUtil.TAG, "AppDataBase: TabelaCliente " + ClienteDataModel.criarTabela());
+
+        db.execSQL(ProdutoDataModel.criarTabela());
+
+        Log.d(AppUtil.TAG, "AppDataBase: TabelaProduto " + ProdutoDataModel.criarTabela());
     }
 
     @Override
