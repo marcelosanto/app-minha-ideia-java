@@ -126,7 +126,6 @@ public class AppDataBase extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
-
         return clientes;
     }
 }

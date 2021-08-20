@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.marcelo.appminhaideia.R;
 import com.marcelo.appminhaideia.controller.ClienteController;
 import com.marcelo.appminhaideia.controller.ProdutoController;
-import com.marcelo.appminhaideia.core.AppUtil;
 import com.marcelo.appminhaideia.model.Cliente;
 import com.marcelo.appminhaideia.model.Produto;
 
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         //obj.setId(11);
 
         for (Cliente obj : clienteController.listar()) {
-            Log.i(AppUtil.TAG, "Cliente listar: " + obj.getId() + " " + obj.getNome() + " " + obj.getEmail());
+            Log.i("Retorno", "Cliente listar: " + obj.getId() + " " + obj.getNome() + " " + obj.getEmail());
         }
 
         /*
